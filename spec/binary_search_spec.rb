@@ -1,6 +1,6 @@
 require 'binary_search'
 
-RSpec.describe BinarySearch, "#sort_func" do
+RSpec.describe BinarySearch, "#search_func" do
   context "with array searches the required" do
     it "searches!" do
       binary_search = BinarySearch.new
@@ -9,6 +9,20 @@ RSpec.describe BinarySearch, "#sort_func" do
     it "return string if not found" do
       binary_search = BinarySearch.new
       expect(binary_search.search_func([1, 2, 3, 4, 5, 6, 7, 8], 9)).to eql "Value not found in array"
+    end
+  end
+end
+
+RSpec.describe BinarySearch, "#find_fixed_point" do
+  context "should have a sorted array" do
+    it "searches for the fixed point" do
+      binary_search = BinarySearch.new
+      expect(binary_search.find_fixed_point([0, 2, 3, 4, 5, 6, 7, 8])).to eql 0
+      expect(binary_search.find_fixed_point([0, 1, 2, 4, 5, 6, 7, 8])).to eql 2
+    end
+    it "returns -1 if not found" do
+      binary_search = BinarySearch.new
+      expect(binary_search.find_fixed_point([1, 2, 3, 4, 5, 6, 7, 8])).to eql -1
     end
   end
 end
