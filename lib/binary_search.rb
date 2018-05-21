@@ -48,4 +48,26 @@ class BinarySearch
     # if no fixed point exist
     return -1
   end
+
+  # Given a sorted array of n unique integers where each integer is in the range from 0 to m-1 and m > n.
+  # Find the smallest number that is missing from the array.
+  # Algorithm: Binary Search (Compare elements with indexes and then decide)
+  # Time-complexity: O(logn), Auxiliary-space: O(1)
+  def find_smallest_missing array
+    low = 0
+    high = array.length - 1
+    while low < high
+      mid = low + (high - low) / 2
+      if array[mid] > mid
+        high = mid
+      else
+        low = mid + 1
+      end
+    end
+    if array[low] == low
+      return low + 1
+    else
+      return low
+    end
+  end
 end

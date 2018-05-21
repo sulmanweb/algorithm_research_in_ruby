@@ -26,3 +26,13 @@ RSpec.describe BinarySearch, "#find_fixed_point" do
     end
   end
 end
+
+RSpec.describe BinarySearch, "#find_smallest_missing" do
+  context "should have a sorted array" do
+    it "searches for the smallest missing" do
+      binary_search = BinarySearch.new
+      expect(binary_search.find_smallest_missing([0, 1, 2, 3])).to eql 4
+      expect(binary_search.find_smallest_missing([0, 1, 2, 5])).to eql 3
+    end
+  end
+end
