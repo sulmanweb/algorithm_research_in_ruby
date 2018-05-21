@@ -70,4 +70,29 @@ class BinarySearch
       return low
     end
   end
+
+  # Given a sorted array of n unique integers where each integer is in the range from 0 to m-1 and m > n.
+  # Find the smallest number that is missing from the array.
+  # Algorithm: Binary Search (Compare elements with indexes and then decide)
+  # Time-complexity: O(logn), Auxiliary-space: O(1)
+  def driver_function_recurrsive_smallest_missing array
+    low = 0
+    high = array.length - 1
+    return recurrsive_smallest_missing(array, low, high)
+  end
+
+  def recurrsive_smallest_missing array, low, high
+    if low > high
+      return high + 1
+    end
+    if array[low] != low
+      return low
+    end
+    mid = low + (high - low) / 2
+    if array[mid] > mid
+      return recurrsive_smallest_missing(array, low, mid)
+    else
+      return recurrsive_smallest_missing(array, mid + 1, high)
+    end
+  end
 end

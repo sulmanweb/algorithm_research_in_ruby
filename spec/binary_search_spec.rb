@@ -36,3 +36,13 @@ RSpec.describe BinarySearch, "#find_smallest_missing" do
     end
   end
 end
+
+RSpec.describe BinarySearch, "#driver_function_recurrsive_smallest_missing" do
+  context "should have a sorted array" do
+    it "searches for the smallest missing" do
+      binary_search = BinarySearch.new
+      expect(binary_search.driver_function_recurrsive_smallest_missing([0, 1, 2, 3])).to eql 4
+      expect(binary_search.driver_function_recurrsive_smallest_missing([0, 1, 2, 5])).to eql 3
+    end
+  end
+end
